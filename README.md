@@ -155,7 +155,7 @@ val fileInDirectory = GitHub.getFile("directoryName", "fileName.txt")
 <details><summary>Asset Manager :package:</summary>
 <p>
 
-- AssetManager for loading and caching data to help save resources
+- [AssetManager](libraries/my-library/src/scripts/kt/utility/AssetManager.kt) for loading and caching data to help save resources
 
 ```kt
 val gitHubImageBitmap = AssetManager.loadGithubImageToBitmap("imageName")
