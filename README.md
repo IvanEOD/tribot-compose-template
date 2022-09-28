@@ -7,19 +7,32 @@
 - [MyScriptGui.kt](scripts/my-script/src/scripts/MyScriptGui.kt)
 - [BaseGui.kt](libraries/my-library/src/scripts/kt/gui/components/BaseGui.kt)
 
-  - Anywhere inside the [GuiScope]() you have access to: 
+  - Anywhere inside the [GuiScope](libraries/my-library/src/scripts/kt/gui/components/BaseGui.kt) you have access to: 
   
     - ```navigation``` [NavigationController](libraries/my-library/src/scripts/kt/gui/components/NavigationController.kt)
     - ```currentScreen``` [GuiScreen](libraries/my-library/src/scripts/kt/gui/components/GuiScreen.kt)
     - ```dispatchSnackbar(message, action, duration, onAction)```
     - ```dispatchAlert(title, message, confirmButtonText, cancelButtonText, onConfirm, onCancel)``` [ScriptGuiAlert](libraries/my-library/src/scripts/kt/gui/components/alert/ScriptAlert.kt)
     - ```navigateTo(navigationKey)```
-    - ```navigateTo([GuiScreen](libraries/my-library/src/scripts/kt/gui/components/GuiScreen.kt))```
+    - ```navigateTo(```[GuiScreen](libraries/my-library/src/scripts/kt/gui/components/GuiScreen.kt)```)```
     - ```toggleCurrentScreenLeftFrame()```
     - ```toggleCurrentScreenRightFrame()```
     - ```closeGui()```
 
-  - Gui
+  - Anywhere inside the [GuiScreenScope](libraries/my-library/src/scripts/kt/gui/components/GuiScreen.kt) you have access to:
+
+    - ```guiScope``` to access things throughout the Gui
+    - ```onGuiClosed(block)``` for setting an action to happen within this scope when the Gui closes.
+    - ```isLeftFrameVisible()```
+    - ```isRightFrameVisible()```
+    - ```showRightFrame()```
+    - ```hideRightFrame()```
+    - ```showLeftFrame()```
+    - ```hideLeftFrame()```
+    - ```toggleRightFrame()```
+    - ```toggleLeftFrame()```
+
+  ## Building a GUI
     
     ```kt
     buildGui("Title", ScriptIcon.fromGithubImage("${windowFrameIcons.random()}%20icon")) {
@@ -27,38 +40,45 @@
     }
     ```
 
-  - Screen
+  - Adding a Screen inside the Gui Builder
   
     ```kt
     Screen("Title", ScriptIcon.fromGithubImage("name")) {
-
+   
         onGuiClosed {
-           
+          // Inside these blocks you are in the GuiScreenScope
         }
 
         FloatingAction {
-
+          // GuiScreenScope
         }
 
         MainFrame {
-
+          // GuiScreenScope
         }
 
         LeftFrame {
-
+          // GuiScreenScope
         }
 
         RightFrame {
-
+          // GuiScreenScope
         }
 
         Screen("Title", "unique name") {
-           
+          // Same options available for nested screens
         }
 
     }
     ```
-
+  - Creating an individual screen without the builder
+  ```kt
+  val SettingsScreen = buildScreen("Settings", ScriptIcon.fromImageVector(Icons.TwoTone.Settings)) {
+       
+      // Same scope as shown above in the GuiBuilder use
+   }
+   
+   ```
 
 
 
