@@ -173,7 +173,7 @@ val itemIconByIDPainter = AssetManager.loadGithubItemIconToPainter(995)
 </details>
 
 
-<details><summary>Script Icon</summary>
+<details><summary>Script Icon :bow_and_arrow:</summary>
  <p>
  
   [ScriptIcon](libraries/my-library/src/scripts/kt/gui/components/ScriptIcon.kt)
