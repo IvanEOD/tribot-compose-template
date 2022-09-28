@@ -171,3 +171,36 @@ val itemIconByIDPainter = AssetManager.loadGithubItemIconToPainter(995)
 
 </p>
 </details>
+
+
+<details><summary>Script Icon</summary>
+ <p>
+ 
+  [ScriptIcon](libraries/my-library/src/scripts/kt/gui/components/ScriptIcon.kt)
+  
+  Adding icons in Jetpack Compose can be tricky/confusing to get the icon you want where you want it, in the format you need it. This class consolidates a few into one type to make it easier to use any icon whenever you need.
+  
+  These are loaded and locally cached through the asset manager.
+  
+  ```kt
+  
+  ScriptIcon.TRiBotLogo
+  ScriptIcon.None // For a placeholder and preventing null checking
+  ScriptIcon.ImageNotFound // Load in place of empty images or images that weren't loaded correctly
+  
+  ScriptIcon.fromImageVector() // This is useful for using the compose icons
+  ScriptIcon.fromImageVector(Icons.TwoTone.Home)
+  
+  ScriptIcon.fromGitHubImage("imageName") // Uses the GitHub class to get your image and use as an icon
+  ScriptIcon.fromUrl("url") // Load any Image from the web 
+  
+  ScriptIcon.fromImage()
+  ScriptIcon.fromPainter()
+  ScriptIcon.fromImageBitmap()
+  ScriptIcon.fromBufferedImage()
+  
+  
+  ```
+ 
+ </p>
+ </details>
