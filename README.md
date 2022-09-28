@@ -81,30 +81,29 @@
    ```
    
    
- - Autocomplete
+# Autocomplete
  
    - Create the state component.
      - You can use a set list as options, or use the listBuilder parameter to create suggestions dynamically. 
      - It also accepts a list or list builder to determine "favorites" items if you would like that option.
      
    ```kt
-val autocompleteState = rememberAutoCompleteState(
+   val autocompleteState = rememberAutoCompleteState(
     listBuilder = { query ->
         Query.itemDefinitions().nameContains(query).isNotPlaceholder.isNotNoted.distinctByName().toList()
     },
     itemToString = { it.name },
-
-)
-```
+    )
+   ```
 
   - Create the actual component.
-  ```kt
+```kt
 SimpleAutoComplete(
     label = "Choose an Item: ",
     labelWidth = 150.dp,
     inputWidth = 200.dp,
     autoCompleteState = autocompleteState
-)
+).
 ```
 
 
