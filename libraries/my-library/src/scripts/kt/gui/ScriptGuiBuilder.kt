@@ -22,19 +22,10 @@ import scripts.kt.gui.theme.ScriptSurface
 
 
 /* Written by IvanEOD 9/28/2022, at 10:40 AM */
-@DslMarker
-annotation class ComposableBuilderDsl
 
 @Target(AnnotationTarget.CLASS, AnnotationTarget.TYPE)
 @DslMarker
 annotation class GuiBuilderDsl
-
-@ComposableBuilderDsl
-abstract class ComposableBuilder {
-    internal var content: @Composable () -> Unit = {}
-    internal abstract fun build(): @Composable () -> Unit
-}
-
 
 @GuiBuilderDsl
 abstract class AbstractGuiBuilder<T> {
