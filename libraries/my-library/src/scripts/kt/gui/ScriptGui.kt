@@ -35,7 +35,7 @@ val HomeScreen = buildScreen("Home", ScriptIcon.fromImageVector(Icons.TwoTone.Ho
 
 
 
-val SettingsScreen = buildScreen("Settings", ScriptIcon.fromImageVector(Icons.TwoTone.Home)) {
+val SettingsScreen = buildScreen("Settings", ScriptIcon.fromImageVector(Icons.TwoTone.Settings)) {
 
     MainFrame {
         Column(
